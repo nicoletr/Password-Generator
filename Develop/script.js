@@ -17,7 +17,7 @@ function writePassword() {
   }
 
   //Determines if user would like to include a number in the password
-  var number = window.confirm("Would you like to include a number?")
+  var includeNumber = window.confirm("Would you like to include a number?")
    if (confirm) {
     console.log = (Math.random() *(8 - 128))
   }else {
@@ -25,7 +25,7 @@ function writePassword() {
   }
 
   //Determines if user would like to incluse a special character in the password
-  var specialCharacter = confirm("Would you like to include a special character?")
+  var includeSpecialCharacter = confirm("Would you like to include a special character?")
   if (confirm) {
    console.log = ("")
   }else {
@@ -33,7 +33,7 @@ function writePassword() {
   }
 
   // Determines if user would like upper case letters in the password
-  var upperCase = confirm("Would you like to include upper case letters?")
+  var includeUpperCase = confirm("Would you like to include upper case letters?")
   if (confirm) {
    console.log = ("")
   }else {
@@ -41,7 +41,7 @@ function writePassword() {
   }
 
   // Determines if user would like lower case letters in the password
-  var lowerCase = confirm("Would you like to include lower case letters?")
+  var includeLowerCase = confirm("Would you like to include lower case letters?")
   if (confirm) {
     console.log = ("")
   }else {
