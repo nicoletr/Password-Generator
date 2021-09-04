@@ -12,14 +12,14 @@ function writePassword() {
   }else if (passwordLength > 128) {
     passwordLength = prompt("Please choose a number between 8 and 128")
   }else {
-    number = confirm();
+    console.log = passwordLength
   }
 
   var number = confirm("Would you like to include a number?")
    if (confirm) {
-    // insert number into password
+    console.log = (Math.random() *(8 - 128))
   }else {
-    // DO NOT insert number into password
+    console.log = (null)
   }
 
   var specialCharacter = confirm("Would you like to include a special character?")
