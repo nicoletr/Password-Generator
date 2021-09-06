@@ -1,13 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function getRandomLower() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
-function getRandomUpper() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -18,23 +11,19 @@ function writePassword() {
   if (passwordLength < 8 && passwordLength > 128) {
    passwordLength = prompt("Please choose a number between 8 and 128")
   }else {
-    console.log = passwordLength
+    console.log = passwordLength;
   }
 
   //Determines if user would like to include a number in the password
   var includeNumber = window.confirm("Would you like to include a number?")
    if (includeNumber) {
-    console.log = (Math.random() *(8 - 128))
-  }else {
-    console.log = ("No numbers")
+    console.log = getRandomNumber();
   }
 
   //Determines if user would like to incluse a special character in the password
   var includeSpecialCharacter = confirm("Would you like to include a special character?")
   if (includeSpecialCharacter) {
-   console.log = ("Special character")
-  }else {
-   console.log = ("No special character")
+   console.log = getRandomSymbol();
   }
 
   // Determines if user would like upper case letters in the password
@@ -51,6 +40,21 @@ function writePassword() {
 
   passwordText.value = password;
 
+}
+
+// Functions to select characters at random using the Character Codes & strings
+function getRandomLower() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+function getRandomUpper() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+function getRandomNumber() {
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+}
+function getRandomSymbol() {
+  const symbols = "!@#$%^&*(){}[]=,./,.'";
+  return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
 // Add event listener to generate button
