@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var passwordLength = window.prompt("How long would you like your password to be? Choose a number between 8 and 128")
+var passwordLength = Number(prompt("How long would you like your password to be? Choose a number between 8 and 128"));
 
 // Determines users desired length of password
 while (passwordLength < 8 || passwordLength > 12) {
@@ -9,24 +9,40 @@ while (passwordLength < 8 || passwordLength > 12) {
 }
 
 if (passwordLength >= 8 && passwordLength <= 128) {
-  var includeNumber = window.confirm("Would you like to include a number?")
-  var includeSpecialCharacter = confirm("Would you like to include a special character?")
+  var includeNumber = confirm("Would you like to include a number?")
+  var includeSymbol = confirm("Would you like to include a special character?")
   var includeUpperCase = confirm("Would you like to include upper case letters?")
   var includeLowerCase = confirm("Would you like to include lower case letters?")
 }
 
-if (includeNumber != true && includeSpecialCharacter != true && includeUpperCase != true && includeLowerCase != true){
-  confirm("You must select at least one character type")
+if (includeNumber != true && includeSymbol != true && includeUpperCase != true && includeLowerCase != true){
+ var oneMin = confirm("You must select at least one character type")
 }
 
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = generatePassword()
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
+}
+
+function generatePassword () {
+  var charSet = "";
+  if (includeNumber = true){
+    getRandomNumber ();
+  }
+  if (includeSymbol = true){
+    getRandomSymbol ();
+  }
+  if (includeUpperCase = true){
+    getRandomUpper ();
+  }
+  if (includeLowerCase = true){
+    getRandomLower ();
+  }
 }
 
 // Functions to select characters at random using the Character Codes & strings
