@@ -7,7 +7,7 @@ var passwordLength = window.prompt("How long would you like your password to be?
   if (passwordLength < 8 && passwordLength > 128) {
    passwordLength = prompt("Number must be between 8 and 128")
   }
-  
+
   //Below determines what the user would like included in the password
   if (passwordLength > 8 && passwordLength < 128) {
   var includeNumber = window.confirm("Would you like to include a number?")
@@ -15,6 +15,11 @@ var passwordLength = window.prompt("How long would you like your password to be?
   var includeUpperCase = confirm("Would you like to include upper case letters?")
   var includeLowerCase = confirm("Would you like to include lower case letters?")
   }
+
+  if (includeNumber != true && includeSpecialCharacter != true && includeUpperCase != true && includeLowerCase != true){
+    confirm("You must select at least one character type")
+}
+
 
 // Write password to the #password input
 function writePassword() {
