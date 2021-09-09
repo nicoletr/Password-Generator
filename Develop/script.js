@@ -28,7 +28,7 @@ function generatePassword(){
     includeLowerCase = confirm("Would you like to include lower case letters?")
   }
   else if (includeNumber && includeSymbol && includeUpperCase && includeLowerCase){
-    
+    //Unfinished. Got stuck but will work on this and resubmit
   }
 }
 
