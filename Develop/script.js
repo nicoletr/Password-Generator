@@ -1,5 +1,5 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+document.querySelector("#generate").addEventListener("click", writePassword);
 
 var passwordLength = Number(prompt("How long would you like your password to be? Choose a number between 8 and 128"));
 
@@ -43,6 +43,13 @@ function generatePassword () {
   if (includeLowerCase = true){
     getRandomLower ();
   }
+
+  var retVal = "";
+  for (var i = 0; i < length; i++) {
+    //picks a character within charSet at index of random number
+    retVal += charSet.charAt(Math.floor(Math.random() * charSet.length));
+  }
+  return retVal;
 }
 
 // Functions to select characters at random using the Character Codes & strings
@@ -60,5 +67,3 @@ function getRandomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
