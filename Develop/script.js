@@ -27,18 +27,8 @@ function generatePassword(){
     includeUpperCase = confirm("Would you like to include upper case letters?")
     includeLowerCase = confirm("Would you like to include lower case letters?")
   }
-
-  if (includeNumber){
-     getRandomNumber();
-  }
-  if (includeSymbol){
-     getRandomSymbol();
-  }
-  if (includeUpperCase){
-    getRandomUpper();
-  }
-  if (includeLowerCase){
-     getRandomLower();
+  else if (includeNumber && includeSymbol && includeUpperCase && includeLowerCase){
+    
   }
 }
 
