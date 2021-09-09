@@ -4,7 +4,7 @@ var generateBtn = document.querySelector("#generate");
 var passwordLength = window.prompt("How long would you like your password to be? Choose a number between 8 and 128")
 
 // Determines users desired length of password
-if (passwordLength < 8 && passwordLength > 128) {
+if (passwordLength < 8 || passwordLength > 128) {
  passwordLength = prompt("Number must be between 8 and 128")
 }
 
@@ -20,6 +20,7 @@ if (includeNumber != true && includeSpecialCharacter != true && includeUpperCase
   confirm("You must select at least one character type")
 }
 
+const resultEl = document.getElementById('password');
 
 // Write password to the #password input
 function writePassword() {
