@@ -1,26 +1,45 @@
-// Assignment Code
-document.querySelector("#generate").addEventListener("click", writePassword);
+//User variables
+var passwordLength;
+var includeNumber;
+var includeSymbol;
+var includeUpperCase;
+var includeLowerCase;
 
-// Determines users desired length of password
-var passwordLength = Number(prompt("How long would you like your password to be? Choose a number between 8 and 128"));
+function generatePassword(){  
+  // Determines users desired length of password
+  passwordLength = Number(prompt("How long would you like your password to be? Choose a number between 8 and 128"));
 
-while (passwordLength < 8 || passwordLength > 12) {
-  passwordLength = prompt("Password length must be between 8 and 128")
-}
+  //Is password is not within length parameters
+  while (passwordLength < 8 || passwordLength > 12) {
+    passwordLength = prompt("Password length must be between 8 and 128")
+  }
 
-if (passwordLength >= 8 && passwordLength <= 128) {
-  var includeNumber = confirm("Would you like to include a number?")
-  var includeSymbol = confirm("Would you like to include a special character?")
-  var includeUpperCase = confirm("Would you like to include upper case letters?")
-  var includeLowerCase = confirm("Would you like to include lower case letters?")
-}
+  if (passwordLength >= 8 && passwordLength <= 128) {
+    includeNumber = confirm("Would you like to include a number?")
+    includeSymbol = confirm("Would you like to include a special character?")
+    includeUpperCase = confirm("Would you like to include upper case letters?")
+    includeLowerCase = confirm("Would you like to include lower case letters?")
+  }
+  else if (!includeNumber && !includeSymbol && !includeUpperCase && !includeLowerCase){
+    alert("You must select at least one character type");
+    includeNumber = confirm("Would you like to include a number?")
+    includeSymbol = confirm("Would you like to include a special character?")
+    includeUpperCase = confirm("Would you like to include upper case letters?")
+    includeLowerCase = confirm("Would you like to include lower case letters?")
+  }
 
-if (includeNumber != true && includeSymbol != true && includeUpperCase != true && includeLowerCase != true){
-  alert("You must select at least one character type");
-  var includeNumber = confirm("Would you like to include a number?")
-  var includeSymbol = confirm("Would you like to include a special character?")
-  var includeUpperCase = confirm("Would you like to include upper case letters?")
-  var includeLowerCase = confirm("Would you like to include lower case letters?")
+  if (includeNumber){
+     getRandomNumber();
+  }
+  if (includeSymbol){
+     getRandomSymbol();
+  }
+  if (includeUpperCase){
+    getRandomUpper();
+  }
+  if (includeLowerCase){
+     getRandomLower();
+  }
 }
 
 
@@ -28,32 +47,8 @@ if (includeNumber != true && includeSymbol != true && includeUpperCase != true &
 function writePassword() {
   var password = generatePassword()
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 
-}
-
-function generatePassword () {
-  var charSet = "";
-  if (includeNumber = true){
-    getRandomNumber ();
-  }
-  if (includeSymbol = true){
-    getRandomSymbol ();
-  }
-  if (includeUpperCase = true){
-    getRandomUpper ();
-  }
-  if (includeLowerCase = true){
-    getRandomLower ();
-  }
-
-  var retVal = "";
-  for (var i = 0; i < length; i++) {
-    //picks a character within charSet at index of random number
-    retVal += charSet.charAt(Math.floor(Math.random() * charSet.length));
-  }
-  return retVal;
 }
 
 // Functions to select characters at random using the Character Codes & strings
@@ -71,3 +66,5 @@ function getRandomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
+// Assignment Code + event listener
+document.querySelector("#generate").addEventListener("click", writePassword);
