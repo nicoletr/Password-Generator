@@ -1,11 +1,11 @@
 // Assignment Code
 document.querySelector("#generate").addEventListener("click", writePassword);
 
+// Determines users desired length of password
 var passwordLength = Number(prompt("How long would you like your password to be? Choose a number between 8 and 128"));
 
-// Determines users desired length of password
 while (passwordLength < 8 || passwordLength > 12) {
-  passwordLength = prompt("Number must be between 8 and 128")
+  passwordLength = prompt("Password length must be between 8 and 128")
 }
 
 if (passwordLength >= 8 && passwordLength <= 128) {
@@ -16,7 +16,11 @@ if (passwordLength >= 8 && passwordLength <= 128) {
 }
 
 if (includeNumber != true && includeSymbol != true && includeUpperCase != true && includeLowerCase != true){
- var oneMin = confirm("You must select at least one character type")
+  alert("You must select at least one character type");
+  var includeNumber = confirm("Would you like to include a number?")
+  var includeSymbol = confirm("Would you like to include a special character?")
+  var includeUpperCase = confirm("Would you like to include upper case letters?")
+  var includeLowerCase = confirm("Would you like to include lower case letters?")
 }
 
 
