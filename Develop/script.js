@@ -8,10 +8,11 @@ function writePassword() {
 
   // Determines users desired length of password
   var passwordLength = window.prompt("How long would you like your password to be? Choose a number between 8 and 128")
+  var length = passwordLength.value
   if (passwordLength < 8 && passwordLength > 128) {
    passwordLength = prompt("Please choose a number between 8 and 128")
   }else {
-    console.log = passwordLength;
+    console.log = length;
   }
 
   //Determines if user would like to include a number in the password
